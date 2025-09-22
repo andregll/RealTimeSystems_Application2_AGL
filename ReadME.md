@@ -1,5 +1,12 @@
 # Application 2: Engineering Analysis - Preemptive Scheduling
 
+### Student: Andre Llanos
+### UCFID: 4809793
+
+## Implementation notes
+The light sensor PCB  does not like being plugged in backwards and got a bit too hot. So most of the testing was with Wokwi for this application.
+
+
 ## 1. Task Timing and Jitter
 
 looking at the logs it seems that the sensor task is very consistant as it uses the vtaskdelayuntil while the LED and print uses vtaskdelay `vTaskDelay` specifies a **relative delay** from the moment it is called. The actual period of these tasks is `(task execution time) + (delay time)`. Because the Sensor has priority, it creates a jitter in the other tasks as when there is an overlap time, the sensor task will run, delaying the other 
@@ -50,3 +57,11 @@ To demonstrate starvation, the `sensor_task` was modified to never block. The `v
 while(1) {
     // This high-priority task now never yields the CPU.
 }
+
+```
+
+
+## AI use
+- Used in this readme to make my writing more legible ( its pretty good at formatting to highlight points and structuring to be easier to read)
+- I Used it recommend scenarios where unexpectedscheduling issues will occur 
+- I had some issues with the sensor task and troubleshot that with AI
